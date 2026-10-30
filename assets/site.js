@@ -16,6 +16,8 @@
     "#quem-somos": "#sobre",
     "#confianca": "#sobre",
     "#diferenciais": "#sobre",
+    "#certificacoes": "#sobre",
+    "#entregas": "#metodologia",
     "#abordagem": "#sobre",
     "#ajuda": "#metodologia",
   };

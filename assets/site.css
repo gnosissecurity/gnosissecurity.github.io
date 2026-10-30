@@ -1989,6 +1989,38 @@ body {
   background: rgba(255, 255, 255, 0.035);
 }
 
+/* Rodada 2: estrutura enxuta */
+.section + .section {
+  border-top: 1px solid var(--line-dark);
+}
+
+.services-grid .service-card {
+  min-height: 0;
+}
+
+.service-icon {
+  margin-top: 0;
+}
+
+.cert-grid.about-certs {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  margin-top: 48px;
+}
+
+.main-nav .nav-cta {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .main-nav .nav-cta {
+    display: inline-flex;
+    margin-top: 14px;
+    padding: 0 22px;
+    color: var(--navy-950);
+    border-bottom: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
