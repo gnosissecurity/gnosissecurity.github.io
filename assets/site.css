@@ -2020,6 +2020,29 @@ body {
   display: none;
 }
 
+/* Toques de cor: laranja = risco, menta = proteção */
+.hero h1 .threat {
+  color: var(--sev-high);
+}
+
+.sev-scale {
+  display: flex;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.sev-scale span {
+  height: 6px;
+  flex: 1;
+  border-radius: 3px;
+}
+
+.sev-scale .sev-critical { background: var(--sev-critical); }
+.sev-scale .sev-high { background: var(--sev-high); }
+.sev-scale .sev-medium { background: var(--sev-medium); }
+.sev-scale .sev-low { background: var(--sev-low); }
+.sev-scale .sev-info { background: var(--sev-info); }
+
 @media (max-width: 920px) {
   .main-nav .nav-cta {
     display: inline-flex;
