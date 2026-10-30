@@ -41,6 +41,15 @@
   --mint-400: #64ddc3;
   --mint-300: #80e6d0;
   --mint-100: #dbf2ec;
+  /* Cor de apoio: âmbar (alertas, destaques pontuais) */
+  --amber-400: #f5b544;
+  --amber-300: #f8c76d;
+  /* Escala de gravidade (relatórios e propostas) */
+  --sev-critical: #f0616d;
+  --sev-high: #f59342;
+  --sev-medium: #f5b544;
+  --sev-low: #64ddc3;
+  --sev-info: #8fa3ad;
   --neutral-100: #f4f7f8;
   --neutral-150: #e6ecee;
   --slate-500: #647570;
