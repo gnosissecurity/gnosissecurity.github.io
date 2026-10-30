@@ -2020,6 +2020,68 @@ body {
   display: none;
 }
 
+/* Quem somos: números em linha, sem caixa */
+.about-stats {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid var(--line-dark);
+}
+
+.about-stats div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: baseline;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.about-stats dt {
+  color: var(--mint-400);
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.about-stats dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .about-stats div {
+    grid-template-columns: 5.5rem 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+
+  .cert-grid.about-certs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 36px;
+  }
+
+  .about-certs .cert-card {
+    min-height: 0;
+    grid-template-rows: 64px auto;
+    gap: 8px;
+    padding: 14px 6px;
+  }
+
+  .about-certs .cert-card img {
+    width: 56px;
+    height: 64px;
+  }
+
+  .about-certs .cert-card span {
+    font-size: 0.68rem;
+  }
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
