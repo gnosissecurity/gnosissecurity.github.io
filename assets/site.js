@@ -14,7 +14,8 @@
   const legacyAnchors = {
     "#desafio": "#servicos",
     "#quem-somos": "#sobre",
-    "#confianca": "#diferenciais",
+    "#confianca": "#sobre",
+    "#diferenciais": "#sobre",
     "#abordagem": "#sobre",
     "#ajuda": "#metodologia",
   };
