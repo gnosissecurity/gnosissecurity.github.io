@@ -2131,6 +2131,123 @@ body {
   line-height: 1.65;
 }
 
+/* ===== Sistema tipográfico: 5 níveis, aplicados no site todo ===== */
+:root {
+  --fs-title: clamp(2.05rem, 3.2vw, 2.88rem);   /* 1. título de seção: 46 px */
+  --fs-card: 1.25rem;                           /* 2. título de card: 20 px */
+  --fs-lead: 1.125rem;                          /* 3. destaque: 18 px */
+  --fs-body: 0.97rem;                           /* 4. texto: 15,5 px */
+  --fs-label: 0.78rem;                          /* 5. rótulo: 12,5 px */
+  --gap-kicker: 18px;
+  --gap-lead: 20px;
+  --gap-content: 48px;
+  --box: 46px;
+}
+
+/* Cabeçalho de seção: sempre empilhado (rótulo, título, apoio) */
+.section-heading {
+  display: block;
+  max-width: 760px;
+  margin-bottom: var(--gap-content);
+}
+
+.section-heading > p:not(.kicker),
+.about-copy > p:not(.kicker),
+.faq-intro > p:not(.kicker),
+.contact-panel > div > p:not(.kicker):last-child {
+  max-width: 620px;
+  margin-top: var(--gap-lead);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+}
+
+.about-copy > p:not(.kicker) + p {
+  margin-top: 12px;
+}
+
+.kicker {
+  font-size: var(--fs-label);
+}
+
+.section-heading h2,
+.about-copy h2,
+.faq-intro h2,
+.contact-panel h2 {
+  margin-top: var(--gap-kicker);
+  font-size: var(--fs-title);
+}
+
+/* Títulos de card */
+.services-grid .service-card h3,
+.method-flow h3 {
+  font-size: var(--fs-card);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* Textos de card e respostas */
+.services-grid .service-card p,
+.method-flow p,
+.faq-list details p {
+  font-size: var(--fs-body);
+  line-height: 1.65;
+}
+
+/* Destaques */
+.faq-list summary,
+.about-stats dd,
+.service-sub {
+  font-size: var(--fs-lead);
+}
+
+.faq-list summary {
+  font-weight: 700;
+}
+
+.service-sub {
+  font-size: var(--fs-body);
+}
+
+/* Rótulos */
+.cert-card span {
+  font-size: var(--fs-label);
+}
+
+/* Caixas de ícone e número: mesmo tamanho */
+.services-grid .service-icon,
+.step-number {
+  width: var(--box);
+  height: var(--box);
+  border-radius: 13px;
+}
+
+/* Metodologia: mesmo respiro dos cards de serviço */
+.method-flow li {
+  padding: 28px 24px 30px;
+}
+
+.method-flow h3 {
+  margin-top: 28px;
+}
+
+.method-flow p {
+  margin-top: 12px;
+}
+
+@media (min-width: 1121px) {
+  .method-flow h3 {
+    min-height: 2.5em; /* títulos de 1 e 2 linhas alinham o texto abaixo */
+  }
+}
+
+@media (max-width: 600px) {
+  .method-flow h3 {
+    margin-top: 0;
+  }
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
