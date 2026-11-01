@@ -2082,6 +2082,55 @@ body {
   }
 }
 
+/* Cabeçalho de seção empilhado: título e apoio juntos */
+.section-heading-stacked {
+  display: block;
+  max-width: 760px;
+  margin-bottom: 48px;
+}
+
+.section-heading-stacked > p {
+  max-width: 620px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.08rem;
+}
+
+/* Cards de serviço: proporções e respiro */
+.services-grid .service-card {
+  padding: 30px 28px 32px;
+}
+
+.services-grid .service-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+}
+
+.services-grid .service-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.services-grid .service-card h3 {
+  margin-top: 28px;
+  font-size: 1.25rem;
+}
+
+.service-sub {
+  display: block;
+  margin-top: 6px;
+  color: var(--mint-300);
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+
+.services-grid .service-card p {
+  margin-top: 16px;
+  font-size: 0.97rem;
+  line-height: 1.65;
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
