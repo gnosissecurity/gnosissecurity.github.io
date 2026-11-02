@@ -2343,6 +2343,25 @@ body {
   max-width: 100%;
 }
 
+/* marca d'água centralizada na coluna das legendas */
+.about-stats {
+  --stat-num: 5.2rem;
+  --stat-gap: 28px;
+  --wm-nudge: -13px; /* ajuste ótico: a última linha não vai até a borda */
+}
+
+.about-stats::before {
+  left: calc(var(--stat-num) + var(--stat-gap) + (100% - var(--stat-num) - var(--stat-gap)) / 2 + var(--wm-nudge));
+}
+
+@media (max-width: 600px) {
+  .about-stats {
+    --stat-num: 4.2rem;
+    --stat-gap: 18px;
+    --wm-nudge: -9px;
+  }
+}
+
 @media (max-width: 600px) {
   .about-stats div {
     grid-template-columns: 4.2rem 1fr;
