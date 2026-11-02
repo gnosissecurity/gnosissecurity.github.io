@@ -2369,6 +2369,12 @@ body {
   }
 }
 
+/* Rodapé: dados da empresa */
+.footer-legal {
+  display: grid;
+  gap: 4px;
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
