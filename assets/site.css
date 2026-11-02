@@ -2262,7 +2262,7 @@ body {
   width: min(420px, 100%);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
-  background: url("gnosis-mark-mint.png?v=15") center / contain no-repeat;
+  background: url("gnosis-mark-mint.png?v=16") center / contain no-repeat;
   opacity: 0.11;
   pointer-events: none;
 }
