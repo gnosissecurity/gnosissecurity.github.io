@@ -2308,6 +2308,17 @@ body {
   color: var(--mint-400);
 }
 
+/* Quem somos: legendas dos números no estilo dos rótulos (caixa alta, mono) */
+.about-stats dd {
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
