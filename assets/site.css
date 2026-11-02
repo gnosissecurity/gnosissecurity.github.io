@@ -2248,6 +2248,26 @@ body {
   }
 }
 
+/* Quem somos: símbolo como marca d'água, centralizado atrás dos números */
+.about-stats {
+  position: relative;
+  isolation: isolate;
+}
+
+.about-stats::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  width: min(420px, 100%);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: url("gnosis-mark-mint.png") center / contain no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
