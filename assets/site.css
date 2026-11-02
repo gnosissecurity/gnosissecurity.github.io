@@ -2398,7 +2398,14 @@ body {
 
 .brand-type small {
   padding-left: 0;
-  margin-right: -0.48em;
+  letter-spacing: 0.718em;
+  margin-right: -0.718em;
+}
+
+/* SECURITY com a mesma largura de GNOSIS (calculado para cada tamanho) */
+.footer-brand .brand-type small {
+  letter-spacing: 0.664em;
+  margin-right: -0.664em;
 }
 
 /* Toques de cor: laranja = risco, menta = proteção */
