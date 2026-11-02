@@ -2408,6 +2408,35 @@ body {
   margin-right: -0.664em;
 }
 
+/* Cabeçalho: logo à esquerda, menu no centro, botão à direita */
+@media (min-width: 921px) {
+  .header-inner {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .main-nav {
+    justify-content: center;
+    gap: 34px;
+  }
+
+  .header-cta {
+    justify-self: end;
+  }
+}
+
+.main-nav a {
+  font-size: var(--fs-body);
+  font-weight: 600;
+}
+
+.header-cta {
+  box-shadow: 0 8px 20px rgba(100, 221, 195, 0.1);
+}
+
+.header-cta:hover {
+  box-shadow: 0 10px 26px rgba(100, 221, 195, 0.16);
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
