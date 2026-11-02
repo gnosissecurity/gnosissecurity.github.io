@@ -2388,6 +2388,19 @@ body {
   }
 }
 
+/* Logo: SECURITY centralizado sob GNOSIS.
+   O espaçamento entre letras deixa um espaço depois da última letra;
+   a margem negativa compensa para o centro ótico bater. */
+.brand-type {
+  min-width: 0;
+  justify-items: center;
+}
+
+.brand-type small {
+  padding-left: 0;
+  margin-right: -0.48em;
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
