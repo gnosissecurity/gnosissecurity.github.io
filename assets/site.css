@@ -2396,16 +2396,20 @@ body {
   justify-items: center;
 }
 
+.brand-type strong {
+  letter-spacing: -0.01em;
+}
+
 .brand-type small {
   padding-left: 0;
-  letter-spacing: 0.718em;
-  margin-right: -0.718em;
+  letter-spacing: 0.768em;
+  margin-right: -0.768em;
 }
 
 /* SECURITY com a mesma largura de GNOSIS (calculado para cada tamanho) */
 .footer-brand .brand-type small {
-  letter-spacing: 0.664em;
-  margin-right: -0.664em;
+  letter-spacing: 0.712em;
+  margin-right: -0.712em;
 }
 
 /* Cabeçalho: logo à esquerda, menu no centro, botão à direita */
