@@ -2299,6 +2299,15 @@ body {
   }
 }
 
+/* Rótulos de seção: sempre menta, em todas as seções e no formulário */
+.hero .kicker,
+.section .about-copy > .kicker,
+.section .faq-intro > .kicker,
+.modal .modal-header .kicker,
+.section .kicker {
+  color: var(--mint-400);
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
