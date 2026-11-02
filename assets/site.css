@@ -2375,6 +2375,19 @@ body {
   gap: 4px;
 }
 
+/* Menu do celular: ocupa a largura toda, fundo opaco */
+@media (max-width: 920px) {
+  .main-nav.is-open {
+    justify-content: stretch;
+    padding: 8px 18px 22px;
+    background: var(--navy-950);
+  }
+
+  .main-nav .nav-cta {
+    justify-content: center;
+  }
+}
+
 /* Toques de cor: laranja = risco, menta = proteção */
 .hero h1 .threat {
   color: var(--sev-high);
