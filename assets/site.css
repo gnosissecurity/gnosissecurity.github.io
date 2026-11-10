@@ -2488,3 +2488,93 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Cor de apoio neutra para textos de rótulo: o menta fica para marca, ícones e ações */
+:root {
+  --label: #9fb3bd;
+}
+
+.hero .kicker,
+.section .about-copy > .kicker,
+.section .faq-intro > .kicker,
+.modal .modal-header .kicker,
+.section .kicker,
+.service-sub {
+  color: var(--label);
+}
+
+.hero .kicker span {
+  color: rgba(159, 179, 189, 0.45);
+}
+
+.about-stats dt {
+  color: var(--white);
+}
+
+.kicker::before {
+  background: var(--mint-400);
+}
+
+/* Página de privacidade */
+.legal-section {
+  padding-top: 150px;
+}
+
+.legal-body {
+  max-width: 760px;
+}
+
+.legal-body h1 {
+  margin-top: var(--gap-kicker, 18px);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.legal-updated {
+  margin-top: 12px;
+  color: var(--label);
+  font-size: 0.9rem;
+}
+
+.legal-body h2 {
+  margin-top: 44px;
+  font-size: 1.3rem;
+}
+
+.legal-body p {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.7;
+}
+
+.legal-body a {
+  color: var(--mint-400);
+}
+
+.legal-page .footer-bottom {
+  margin-top: 0;
+  border-top: 0;
+}
+
+.legal-back {
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 0.9rem;
+}
+
+.legal-page .header-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Alternância de fundo: seções pares um tom acima, para marcar o ritmo da rolagem */
+#metodologia,
+#faq {
+  background: var(--navy-850);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-panel h2 .threat {
+  color: var(--sev-high);
+}

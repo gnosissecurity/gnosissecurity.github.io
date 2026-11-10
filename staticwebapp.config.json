@@ -1,12 +1,11 @@
 {
-      "globalHeaders": {
-        "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; frame-src 'self'; frame-ancestors 'self'; upgrade-insecure-requests; form-action 'self'",
-        "X-Frame-Options": "SAMEORIGIN",
-        "X-Permitted-Cross-Domain-Policies": "none",
-        "Referrer-Policy":"no-referrer",
-        "X-Content-Type-Options": "nosniff",
-        "Strict-Transport-Security": "max-age=31536000",
-        "Permissions-Policy": "camera=(), microphone=()",
-        "Expect-Ct": "max-age=0;"
-    }
+  "globalHeaders": {
+    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests; form-action 'self'",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Permitted-Cross-Domain-Policies": "none",
+    "Referrer-Policy": "no-referrer",
+    "X-Content-Type-Options": "nosniff",
+    "Strict-Transport-Security": "max-age=31536000",
+    "Permissions-Policy": "camera=(), microphone=()"
   }
+}
