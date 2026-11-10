@@ -34,13 +34,32 @@
 
   const closeMenu = () => setMenuState(false);
 
-  const scrollToTarget = (target) => {
+  // Rola até o título da seção (não até a borda dela), descontando o cabeçalho fixo,
+  // para o conteúdo aparecer logo abaixo do menu em vez de cair no meio da tela.
+  const SCROLL_GAP = 28;
+  const scrollToTarget = (target, behavior) => {
     if (!target) return;
-    target.scrollIntoView({
-      behavior: motionReduced ? "auto" : "smooth",
-      block: "start",
+    let top = 0;
+    if (target.id !== "top") {
+      const anchor = target.querySelector(".kicker, h2") || target;
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      top = anchor.getBoundingClientRect().top + window.scrollY - headerHeight - SCROLL_GAP;
+    }
+    window.scrollTo({
+      top: Math.max(0, Math.round(top)),
+      behavior: behavior || (motionReduced ? "auto" : "smooth"),
     });
   };
+
+  const initialTarget =
+    window.location.hash && !legacyAnchors[window.location.hash]
+      ? document.querySelector(window.location.hash.replace(/[^#\w-]/g, ""))
+      : null;
+  if (initialTarget && initialTarget.closest("main")) {
+    const alignInitial = () => window.setTimeout(() => scrollToTarget(initialTarget, "auto"), 60);
+    if (document.readyState === "complete") alignInitial();
+    else window.addEventListener("load", alignInitial, { once: true });
+  }
 
   if (legacyAnchors[window.location.hash]) {
     const currentHash = legacyAnchors[window.location.hash];
@@ -118,7 +137,7 @@
       event.preventDefault();
       history.pushState(null, "", hash);
       closeMenu();
-      scrollToTarget(target);
+      window.requestAnimationFrame(() => scrollToTarget(target));
     });
   });
 
