@@ -2578,3 +2578,35 @@ body {
 .contact-panel h2 .threat {
   color: var(--sev-high);
 }
+
+/* Plano B do formulário: e-mail visível com botão de copiar */
+.mail-fallback {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.mail-fallback strong {
+  color: var(--mint-300);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.copy-email {
+  margin-left: 6px;
+  padding: 4px 10px;
+  color: var(--mint-300);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.copy-email:hover,
+.copy-email:focus-visible {
+  border-color: var(--mint-400);
+}

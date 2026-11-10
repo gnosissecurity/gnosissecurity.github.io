@@ -5,6 +5,9 @@
   const modal = document.querySelector("[data-contact-modal]");
   const form = document.querySelector("#contact-form");
   const formStatus = document.querySelector("#form-status");
+  const mailFallback = document.querySelector("#mail-fallback");
+  const copyEmailButton = document.querySelector("[data-copy-email]");
+  const contactEmail = "comercial@gnosissecurity.com.br";
   const interestField = document.querySelector("#contact-interest");
   const openButtons = document.querySelectorAll("[data-open-contact]");
   const closeButtons = document.querySelectorAll("[data-close-contact]");
@@ -84,6 +87,7 @@
       formStatus.textContent = "";
       formStatus.classList.remove("is-error");
     }
+    if (mailFallback) mailFallback.hidden = true;
     lastFocusedElement?.focus?.();
   };
 
@@ -183,8 +187,30 @@
     }
 
     window.setTimeout(() => {
-      window.location.href = `mailto:comercial@gnosissecurity.com.br?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
     }, 250);
+
+    if (mailFallback) mailFallback.hidden = false;
+  });
+
+  copyEmailButton?.addEventListener("click", async () => {
+    let copied = false;
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      copied = true;
+    } catch (error) {
+      const temp = document.createElement("textarea");
+      temp.value = contactEmail;
+      temp.setAttribute("readonly", "");
+      temp.style.position = "fixed";
+      temp.style.opacity = "0";
+      document.body.appendChild(temp);
+      temp.select();
+      try { copied = document.execCommand("copy"); } catch (e) { copied = false; }
+      temp.remove();
+    }
+    copyEmailButton.textContent = copied ? "Copiado ✓" : "Selecione e copie o endereço";
+    window.setTimeout(() => { copyEmailButton.textContent = "Copiar e-mail"; }, 2500);
   });
 
   const updateHeader = () => {
