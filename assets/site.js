@@ -239,25 +239,75 @@
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
-  const sections = Array.from(document.querySelectorAll("main section[id]"));
-  const navLinks = Array.from(document.querySelectorAll(".main-nav a[href^='#']"));
-  if ("IntersectionObserver" in window && sections.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        navLinks.forEach((link) => {
-          if (link.getAttribute("href") === `#${visible.target.id}`) {
-            link.setAttribute("aria-current", "true");
-          } else {
-            link.removeAttribute("aria-current");
-          }
-        });
-      },
-      { rootMargin: "-35% 0px -55% 0px", threshold: [0, 0.2, 0.5] }
-    );
-    sections.forEach((section) => observer.observe(section));
-  }
+  // Destaque do item do menu: segue a seção que está logo abaixo do cabeçalho.
+  // Ao clicar, o item é marcado na hora e fica travado até a rolagem terminar.
+  const navLinks = Array.from(document.querySelectorAll(".main-nav a[href^='#']:not([data-open-contact])"));
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+  let lockedHash = null;
+  let unlockTimer = null;
+
+  const setActiveLink = (hash) => {
+    navLinks.forEach((link) => {
+      if (hash && link.getAttribute("href") === hash) {
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const currentSectionHash = () => {
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+    const line = headerHeight + window.innerHeight * 0.3;
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    let current = null;
+    sections.forEach((section) => {
+      if (section.getBoundingClientRect().top <= line) current = section;
+    });
+    if (atBottom && sections.length) current = sections[sections.length - 1];
+    return current ? `#${current.id}` : null;
+  };
+
+  const updateActiveLink = () => {
+    if (lockedHash) return;
+    setActiveLink(currentSectionHash());
+  };
+
+  const releaseLock = () => {
+    window.clearTimeout(unlockTimer);
+    unlockTimer = window.setTimeout(() => {
+      lockedHash = null;
+      updateActiveLink();
+    }, 180);
+  };
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      lockedHash = link.getAttribute("href");
+      setActiveLink(lockedHash);
+      releaseLock();
+    });
+  });
+
+  let ticking = false;
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (lockedHash) {
+        releaseLock();
+        return;
+      }
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        ticking = false;
+        updateActiveLink();
+      });
+    },
+    { passive: true }
+  );
+  window.addEventListener("resize", updateActiveLink);
+  updateActiveLink();
 })();
